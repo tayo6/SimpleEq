@@ -1,0 +1,38 @@
+name: Build SimpleEQ VST3
+
+# Run this whenever you push (save) code to GitHub
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: # Also lets you trigger it manually
+
+jobs:
+  build-windows:
+    name: Build Windows VST3
+    runs-on: windows-latest  # Uses a real Windows computer in the cloud
+
+    steps:
+      # Step 1: Download your code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Install CMake
+      - name: Setup CMake
+        uses: lukka/get-cmake@latest
+
+      # Step 3: Configure the build
+      # This downloads JUCE and prepares everything (takes a few minutes)
+      - name: Configure
+        run: cmake -B build -DCMAKE_BUILD_TYPE=Release
+
+      # Step 4: Actually compile the plugin
+      - name: Build
+        run: cmake --build build --config Release
+
+      # Step 5: Package the .vst3 file for download
+      - name: Upload VST3 Plugin
+        uses: actions/upload-artifact@v4
+        with:
+          name: SimpleEQ-VST3-Windows
+          path: build/**/*.vst3
+          retention-days: 30

@@ -38,6 +38,8 @@ juce_add_plugin(SimpleEQ
 # ============================================================
 # Tell CMake which source files to compile
 # ============================================================
+juce_generate_juce_header(SimpleEQ)
+
 target_sources(SimpleEQ
     PRIVATE
         source/PluginProcessor.cpp

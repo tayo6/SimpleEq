@@ -1,4 +1,4 @@
-# Simple EQ VST
+# SIMPLE EQ VST
 ### Developed by **Adeniran Tayo** ###
 
 A lightweight equalizer plugin with three essential bands: low cut, high cut, and a parametric notch filter with adjustable Q.

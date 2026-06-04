@@ -3,6 +3,8 @@
 
 A lightweight equalizer plugin with three essential bands: low cut, high cut, and a parametric notch filter with adjustable Q.
 
+**NOTE**: I have not perfected the lookalike scripts for its user interface 
+
 ## Features
 
 - **Low Cut Filter** – Removes rumble and low-end noise (20–500 Hz)
